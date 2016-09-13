@@ -105,3 +105,15 @@ section of composer.json:
     }
 }
 ```
+
+### How can I prevent downloading modules from thunder, that I do not need?
+
+To prevent downloading a module, that Thunder provides but that you do not need, add a replace block to your composer.json:
+
+```json
+"replace": {
+    "drupal/features": "*"
+}
+```
+
+This example prevents any version of the feature module to be downloaded.
