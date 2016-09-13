@@ -50,19 +50,12 @@ When installing the given `composer.json` some tasks are taken care of:
 
 ## Installing Thunder
 
-Create project will install thunder into the docroot direcrory inside of MYPROJECT. YOu can now install thunder as you would with any Drupal 8 site. See: [Drupal installation guide](https://www.drupal.org/node/1839310).
-
-* `[environment]`is `local` for installations
-where the database settings are known, 
-* or `devdesktop`, if the Acquia DevDesktop is used.
-    * In this case, you should *Import local Drupal site* in the DevDesktop App, before executing the command
-
-If no database dump exists in `./database`, the script will install the site, enable the the extensions `config` and `locale`,
- update the locale, export the config and make a database dump.
- 
-If a database dump exists, it will just import it.
+Create project will install thunder into the docroot direcrory inside of MYPROJECT. You can now install thunder as you would with any Drupal 8 site. See: [Drupal installation guide](https://www.drupal.org/node/1839310).
  
 ## Updating Thunder
+
+To update Thunder, Drupal or any module to the newest version, constrained by the specified version in `composer.json`, execute `composer update`. This command will check every dependency for a new version, downloads it and updates the `composer.lock` accordingly.
+After that you can run `drush updb` to update the database of your site.
 
 ### File update
 
