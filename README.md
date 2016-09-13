@@ -55,7 +55,7 @@ Create project will install thunder into the docroot direcrory inside of MYPROJE
 ## Updating Thunder
 
 To update Thunder, Drupal or any module to the newest version, constrained by the specified version in `composer.json`, execute `composer update`. This command will check every dependency for a new version, downloads it and updates the `composer.lock` accordingly.
-After that you can run `drush updb` to update the database of your site.
+After that you can run `drush updb` in the docroot folder to update the database of your site.
 
 ### File update
 
