@@ -28,7 +28,7 @@ docroot/sites/*/files
 docroot/sites/*/private
 
 # Ignore SimpleTest multi-site environment.
-docroot/drupal/sites/simpletest
+docroot/sites/simpletest
 
 # Ignore Acquia Dev Desktop configs.
 docroot/sites/*.dd
