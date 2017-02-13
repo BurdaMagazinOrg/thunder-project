@@ -112,6 +112,7 @@ class ScriptHandler {
         $executor = new ProcessExecutor($event->getIO());
         $output = NULL;
         $executor->execute('npm install', $output, $thunder);
+        $event->getIO()->write($output);
       }
     }
   }
