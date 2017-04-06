@@ -93,27 +93,4 @@ class ScriptHandler {
 
   }
 
-  /**
-   * Moves front-end libraries to Thunder's installed directory.
-   *
-   * @param \Composer\Script\Event $event
-   *   The script event.
-   */
-  public static function deployLibraries(Event $event) {
-    $extra = $event->getComposer()->getPackage()->getExtra();
-    if (isset($extra['installer-paths'])) {
-      foreach ($extra['installer-paths'] as $path => $criteria) {
-        if (array_intersect(['drupal/thunder', 'type:drupal-profile'], $criteria)) {
-          $thunder = $path;
-        }
-      }
-      if (isset($thunder)) {
-        $thunder = str_replace('{$name}', 'thunder', $thunder);
-        $executor = new ProcessExecutor($event->getIO());
-        $output = NULL;
-        $executor->execute('npm install', $output, $thunder);
-        $event->getIO()->write($output);
-      }
-    }
-  }
 }
