@@ -67,8 +67,7 @@
             "docroot/core": ["type:drupal-core"],
             "docroot/libraries/{$name}": [
                 "type:drupal-library",
-                "vendor:bower-asset",
-                "vendor:npm-asset"
+                "vendor:bower-asset"
             ],
             "docroot/modules/contrib/{$name}": ["type:drupal-module"],
             "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
