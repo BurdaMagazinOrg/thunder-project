@@ -25,11 +25,16 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     ],
     "require": {
-        "burdamagazinorg/thunder": "~8.0",
+        "burdamagazinorg/thunder": "~8.2",
         "composer/installers": "^1.2",
+        "oomphinc/composer-installers-extender": "^1.1",
         "drupal-composer/drupal-scaffold": "^2.2",
         "cweagans/composer-patches": "~1.0",
         "drush/drush": "~8.0",
@@ -49,19 +54,21 @@
         "drupal-scaffold": "Thunder\\DrupalScaffold\\Plugin::scaffold",
         "post-install-cmd": [
             "Thunder\\composer\\ScriptHandler::buildScaffold",
-            "Thunder\\composer\\ScriptHandler::createRequiredFiles",
-            "Thunder\\composer\\ScriptHandler::deployLibraries"
+            "Thunder\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
             "Thunder\\composer\\ScriptHandler::buildScaffold",
-            "Thunder\\composer\\ScriptHandler::createRequiredFiles",
-            "Thunder\\composer\\ScriptHandler::deployLibraries"
+            "Thunder\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "extra": {
+        "installer-types": ["library"],
         "installer-paths": {
             "docroot/core": ["type:drupal-core"],
-            "docroot/libraries/{$name}": ["type:drupal-library"],
+            "docroot/libraries/{$name}": [
+                "type:drupal-library",
+                "vendor:bower-asset"
+            ],
             "docroot/modules/contrib/{$name}": ["type:drupal-module"],
             "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
             "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
