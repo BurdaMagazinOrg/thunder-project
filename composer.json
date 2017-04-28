@@ -62,11 +62,12 @@
         ]
     },
     "extra": {
-        "installer-types": ["library"],
+        "installer-types": ["bower-asset"],
         "installer-paths": {
             "docroot/core": ["type:drupal-core"],
             "docroot/libraries/{$name}": [
                 "type:drupal-library",
+                "type:bower-asset",
                 "vendor:bower-asset"
             ],
             "docroot/modules/contrib/{$name}": ["type:drupal-module"],
