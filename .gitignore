@@ -3,7 +3,7 @@ drush/contrib
 vendor
 bin
 docroot/core
-doctoor/libraries
+docroot/libraries
 docroot/modules/contrib
 docroot/themes/contrib
 docroot/profiles/contrib
