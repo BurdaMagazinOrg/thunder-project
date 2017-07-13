@@ -18,14 +18,14 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project burdamagazinorg/thunder-project MYPROJECT --stability dev --no-interaction
+composer create-project burdamagazinorg/thunder-project thunder --stability dev --no-interaction
 ```
 
 With `composer require ...` you can download new dependencies to your 
 installation.
 
 ```
-cd MYPROJECT
+cd thunder
 composer require drupal/devel:1.*
 ```
 
