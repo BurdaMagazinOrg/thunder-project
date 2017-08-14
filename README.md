@@ -17,16 +17,14 @@ for your setup.
 
 After that you can create the project:
 
-```
-composer create-project burdamagazinorg/thunder-project thunder
-```
+    $composer create-project burdamagazinorg/thunder-project thunder
 
 With `composer require ...` you can download new dependencies to your 
 installation.
 
 ```
-cd thunder
-composer require drupal/devel:1.*
+$ cd thunder
+$ composer require drupal/devel:1.*
 ```
 
 The `composer create-project` command passes ownership of all files to the 
@@ -117,3 +115,54 @@ To prevent downloading a module, that Thunder provides but that you do not need,
 ```
 
 This example prevents any version of the feature module to be downloaded.
+
+## Using docker (optional)
+
+We also provide a Docker4Drupal configuration file, that lets you easily spin up a local drupal web stack. To use the docker
+environment, you need to [install docker and docker-compose](https://docs.docker.com/engine/installation/) 
+
+After getting the project files with 
+
+    $ composer create-project burdamagazinorg/thunder-project thunder
+
+copy the example docker-compose.yml to the projects root directory and the docker settings to the sites/default folder:
+
+    $ cp examples/docker/docker-compose.yml .
+    $ cp examples/docker/settings.local.php docroot/sites/default/
+
+you can run docker-compose to set up the docker containers:
+
+    $ docker-compose up -d
+    
+Now docker-compose needs a few minutes to be ready, but after a short while you should be able to connect to the site
+by visiting http://thunder.localhost, it might be necessary to add 
+
+```
+127.0.0.1    thunder.localhost 
+```
+
+to your /etc/hosts file.
+
+### create aliases for drush and composer
+
+The docker container also provide drush and composer, to easily use them you could add the following aliases 
+to your .profile file:
+
+```
+alias ddrush='docker-compose exec --user 82 php drush -r /var/www/html/docroot'
+alias dcomposer='docker-compose exec --user 82 php composer'
+```
+
+Whe you are in your projects root folder, you can use ddrush and composer to call the drush and composer binaries within
+your container.
+
+### Running multiple projects
+
+When you want to run multiple projects on one machine, you could simply change the port mapping for traefik in the 
+docker-compose file for each project or you could follow the instructions given
+[here](https://docker4drupal.readthedocs.io/en/latest/multiple-projects/)
+
+### Additional resources
+
+More information about Docker4Drupal and the possibilities of the docker-compose.yml can be found at the 
+[Docker4Drupal getting started guide](https://docker4drupal.readthedocs.io)
