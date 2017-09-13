@@ -9,7 +9,7 @@ the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
 
 ## Usage
 
-First you need to install [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) and [Node](https://nodejs.org).
+First you need to install [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx) and [Git](https://git-scm.com).
 
 > Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
 You might need to replace `composer` with `php composer.phar` (or similar) 
