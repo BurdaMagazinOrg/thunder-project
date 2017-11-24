@@ -19,6 +19,10 @@
         {
             "name": "Timo Welde",
             "email": "welde@galaniproject.de"
+        },
+        {
+            "name": "Volker Killesreiter",
+            "email": "killesreiter@burda.com"
         }
     ],
     "repositories": [
@@ -33,12 +37,14 @@
     ],
     "require": {
         "burdamagazinorg/thunder": "~8.2",
-        "composer/installers": "^1.2",
-        "oomphinc/composer-installers-extender": "^1.1",
+        "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
-        "cweagans/composer-patches": "~1.0",
-        "drush/drush": "^8.1.10",
-        "drupal/console": "~1.0"
+        "drupal/console": "~1.0.2",
+        "composer/installers": "^1.2",
+        "drush/drush": "~8.0|^9.0.0-beta8",
+        "oomphinc/composer-installers-extender": "^1.1",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -48,17 +54,18 @@
         ]
     },
     "scripts": {
-        "dependency-cleanup": [
-            "Thunder\\composer\\ScriptHandler::dependencyCleanup"
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
-        "drupal-scaffold": "Thunder\\DrupalScaffold\\Plugin::scaffold",
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
         "post-install-cmd": [
-            "Thunder\\composer\\ScriptHandler::buildScaffold",
-            "Thunder\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
-            "Thunder\\composer\\ScriptHandler::buildScaffold",
-            "Thunder\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "extra": {

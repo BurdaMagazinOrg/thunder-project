@@ -1,7 +1,6 @@
-# Composer template for Drupal Thunder projects based on drupal-composer/drupal-project
+# Composer based Thunder installation
 
-This project template should provide a kickstart for managing your site
-dependencies with [Composer](https://getcomposer.org/).
+This project template should provide a kickstart for managing your site dependencies with [Composer](https://getcomposer.org/).
 
 If you want to know how to use it as replacement for
 [Drush Make](https://github.com/drush-ops/drush/blob/master/docs/make.md) visit
@@ -50,7 +49,7 @@ When installing the given `composer.json` some tasks are taken care of:
 
 ## Installing Thunder
 
-Create project will install thunder into the docroot direcrory inside of thunder. You can now install thunder as you would with any Drupal 8 site. See: [Drupal installation guide](https://www.drupal.org/node/1839310).
+Create project will install Thunder into the docroot direcrory. You can now install Thunder as you would with any Drupal 8 site. See: [Drupal installation guide](https://www.drupal.org/node/1839310).
  
 ## Updating Thunder
 
@@ -100,12 +99,32 @@ section of composer.json:
 "extra": {
     "patches": {
         "drupal/foobar": {
-            "Patch description": "URL to patch"
+            "Patch description": "URL or local path to patch"
         }
     }
 }
 ```
+### Should I commit the scaffolding files?
 
+The [drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold) plugin can download the scaffold files (like
+index.php, update.php, …) to the web/ directory of your project. If you have not customized those files you could choose
+to not check them into your version control system (e.g. git). If that is the case for your project it might be
+convenient to automatically run the drupal-scaffold plugin after every install or update of your project. You can
+achieve that by registering `@drupal-scaffold` as post-install and post-update command in your composer.json:
+
+```json
+"scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "post-install-cmd": [
+        "@drupal-scaffold",
+        "..."
+    ],
+    "post-update-cmd": [
+        "@drupal-scaffold",
+        "..."
+    ]
+},
+```
 ### How can I prevent downloading modules from thunder, that I do not need?
 
 To prevent downloading a module, that Thunder provides but that you do not need, add a replace block to your composer.json:
