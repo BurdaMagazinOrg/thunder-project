@@ -1,0 +1,26 @@
+language: php
+dist: trusty
+sudo: false
+php: 7.1
+
+cache:
+  apt: true
+  directories:
+  - "$HOME/.composer/cache"
+  - "$HOME/.drush/cache"
+
+branches:
+  only:
+    - /[0-9]+\.x/
+
+mysql:
+  database: thunder
+  username: root
+  encoding: utf8
+
+before_install:
+  - source ./scripts/travis/01-setup-environment.sh
+
+script:
+# Installing thunder is the actual test
+  - bash -x -e ./scripts/travis/02-install-thunder.sh
