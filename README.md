@@ -49,7 +49,7 @@ When installing the given `composer.json` some tasks are taken care of:
 
 ## Installing Thunder
 
-Create project will install Thunder into the docroot direcrory. You can now install Thunder as you would with any Drupal 8 site. See: [Drupal installation guide](https://www.drupal.org/node/1839310).
+Create project will install Thunder into the docroot directory. You can now install Thunder as you would with any Drupal 8 site. See: [Drupal installation guide](https://www.drupal.org/node/1839310).
  
 ## Updating Thunder
 
