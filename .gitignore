@@ -33,3 +33,6 @@ docroot/sites/simpletest
 
 # Ignore Acquia Dev Desktop configs.
 docroot/sites/*.dd
+
+# Ignore .env files as they are personal
+/.env
