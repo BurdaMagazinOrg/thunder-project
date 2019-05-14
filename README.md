@@ -17,7 +17,7 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project burdamagazinorg/thunder-project thunder
+composer create-project thunder/thunder-project thunder
 ```
 
 With `composer require ...` you can download new dependencies to your 
@@ -67,7 +67,7 @@ new release of Drupal core.
 
 Follow the steps below to update your thunder files.
 
-1. Run `composer update burdamagazinorg/thunder`
+1. Run `composer update thunder/thunder-distribution`
 1. Run `git diff` to determine if any of the scaffolding files have changed. 
    Review the files for any changes and restore any customizations to 
   `.htaccess` or `robots.txt`.
