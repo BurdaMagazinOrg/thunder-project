@@ -1,13 +1,16 @@
 language: php
 dist: trusty
 sudo: false
-php: 7.1
+php: 7.3
 
 cache:
   apt: true
   directories:
   - "$HOME/.composer/cache"
   - "$HOME/.drush/cache"
+  
+env:
+  - COMPOSER_MEMORY_LIMIT=-1
 
 branches:
   only:
