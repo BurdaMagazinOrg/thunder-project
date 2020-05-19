@@ -99,7 +99,6 @@
         }
     },
     "config": {
-        "bin-dir": "bin/",
         "sort-packages": true
     }
 }
